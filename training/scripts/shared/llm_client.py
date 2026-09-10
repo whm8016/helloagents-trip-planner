@@ -133,6 +133,11 @@ class DataGenLLM:
             if self.reasoning_effort:
                 kwargs["reasoning_effort"] = self.reasoning_effort
             kwargs["extra_body"] = {"thinking": {"type": "enabled"}}
+        else:
+            # deepseek-v4 系列模型默认开启 thinking；不显式关闭时，长输出场景
+            # 容易把 max_tokens 全部耗在 reasoning_tokens 上，导致 content 为空、
+            # JSON 解析失败（重试又会再次触发同样的问题，白白浪费 token）。
+            kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
 
         response = self.client.chat.completions.create(**kwargs)
         usage = _usage_to_dict(getattr(response, "usage", None))

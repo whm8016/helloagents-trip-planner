@@ -115,6 +115,10 @@ def call_strong_model(prompt_row: dict[str, Any], spec: CandidateSpec, args: arg
         kwargs["reasoning_effort"] = llm.reasoning_effort
     if llm.enable_thinking:
         kwargs["extra_body"] = {"thinking": {"type": "enabled"}}
+    else:
+        # 同 shared/llm_client.py：不显式关闭时 deepseek-v4 系列默认思考，
+        # 长输出容易把 max_tokens 全耗在 reasoning 上，content 为空。
+        kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
     response = llm.client.chat.completions.create(**kwargs)
     return response.choices[0].message.content or "", response.choices[0].finish_reason or ""
 
