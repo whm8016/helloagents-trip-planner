@@ -24,5 +24,23 @@
       "chosen": "chosen",
       "rejected": "rejected"
     }
+  },
+  "trip_planner_sft___dpo_train": {
+    "file_name": "generated/trip_planner_sft___dpo_train.json"
+  },
+  "trip_planner_sft___dpo_val": {
+    "file_name": "generated/trip_planner_sft___dpo_val.json"
+  },
+  "trip_planner_sft_batch1_train": {
+    "file_name": "generated/trip_planner_sft_batch1_train.json"
+  },
+  "trip_planner_sft_batch1_val": {
+    "file_name": "generated/trip_planner_sft_batch1_val.json"
+  },
+  "trip_planner_bestofn1200_replay_train": {
+    "file_name": "pack_20260514/05_bestofn1200_replay/train.json"
+  },
+  "trip_planner_bestofn1200_replay_val": {
+    "file_name": "pack_20260514/05_bestofn1200_replay/val.json"
   }
 }

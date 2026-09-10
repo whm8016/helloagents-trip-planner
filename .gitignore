@@ -89,6 +89,7 @@ lightning_logs/
 /training/configs/**/serve_*/
 /training/configs/**/*legacy*.yaml
 /training/data/llamafactory/generated/
+/training/data/llamafactory/pack_20260514/
 /training/data/llamafactory/archive/
 /training/data/llamafactory/trip_planner_*.json
 /training/data/llamafactory/trip_planner_*.yaml
